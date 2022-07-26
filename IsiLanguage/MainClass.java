@@ -5,16 +5,16 @@ public class MainClass{
 	double  a;
 	double  b;
 	String  c;
-	System.out.println(a);
-	System.out.println(b);
-	System.out.println(c);
+	a= _key.nextDouble();
+	b= _key.nextDouble();
+	c= _key.nextLine();
 	a = 1;
 	b = 2;
-	c = "eita";
-	if (a>b) {
+	c = "eita!+";
+	if (b>a) {
 	  System.out.println(a);
  	} else {
-	  System.out.println(c);
+	  c= _key.nextLine();
 	}
 
     }

@@ -9,12 +9,12 @@ programa
 
     a := 1.
     b := 2.
-    c := "eita".
+    c := "eita!+".
     
-    se (a > b) {
+    se (b > a) {
         escreva(a).
     } senao {
-        escreva(c).
+        leia(c).
     }
     
 fimprog.

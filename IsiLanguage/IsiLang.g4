@@ -160,7 +160,7 @@ cmdselecao  :   'se'    AP
                                 CommandDecisao cmd = new CommandDecisao(_exprDecision, listaTrue, listaFalse);
                                 stack.peek().add(cmd);
                             }
-                            )?
+                )?
             ;
 
 expr    :   termo (
@@ -212,7 +212,7 @@ ID  : [a-z] ([a-z] | [A-Z] | [0-9])*
 NUMBER  : [0-9]+ ('.' [0-9]+)?
         ;
 
-TEXT   : ['"'] ([a-z] | [A-Z] | [0-9] | ' ')* ['"']
+TEXT   : ['"'] ([a-z] | [A-Z] | [0-9] | ' ' | '\t' | '!' | [#-/])* ['"']
        ;
 
 WS  : (' ' | '\t' | '\n' | '\r') -> skip
