@@ -10,7 +10,7 @@ public class MainClass{
 	System.out.println(c);
 	a = 1;
 	b = 2;
-	c = "eita";
+	c = "eita!+";
 	if (a>b) {
 	  System.out.println(a);
  	} else {
