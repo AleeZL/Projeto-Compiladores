@@ -1,5 +1,6 @@
 package main;
 
+import exceptions.IsiException;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import parser.IsiLangLexer;
@@ -34,7 +35,9 @@ public class IsiLanguage {
             System.out.println("Sucesso!");
                     
             
-        } catch (Exception ex) {
+        } catch (IsiException ex) {
+            System.err.println("Semantic error - "+ex.getMessage());
+        }catch (Exception ex) {
             System.err.println("Error "+ex.getMessage());
         }
     }
