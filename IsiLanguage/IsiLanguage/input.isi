@@ -1,0 +1,20 @@
+programa
+
+    numero a,b.
+    texto c.
+    leia(a).
+    leia(b).
+    
+    leia(c).
+
+    a := 1.
+    b := 2.
+    c := "eita".
+    
+    se (a > b) {
+        escreva(a).
+    } senao {
+        escreva(c).
+    }
+    
+fimprog.
