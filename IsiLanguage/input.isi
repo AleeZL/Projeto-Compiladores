@@ -1,6 +1,6 @@
 programa
 
-    numero a, b.
+    numero a,b.
     texto c.
     leia(a).
     leia(b).
@@ -9,11 +9,12 @@ programa
 
     a := 1.
     b := 2.
+    c := "eita".
     
     se (a > b) {
         escreva(a).
     } senao {
-        escreva(b).
+        escreva(c).
     }
     
 fimprog.
