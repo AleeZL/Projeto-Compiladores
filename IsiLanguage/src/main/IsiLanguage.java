@@ -33,6 +33,10 @@ public class IsiLanguage {
             parser.prog();
             
             System.out.println("Sucesso!");
+            
+            parser.exibeComandos();
+            
+            parser.generateCode();
                     
             
         } catch (IsiException ex) {

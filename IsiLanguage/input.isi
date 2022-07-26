@@ -1,15 +1,19 @@
 programa
 
-    numero a, b;
-    texto c;
-
-    leia(a);
-    leia(b);
+    numero a, b.
+    texto c.
+    leia(a).
+    leia(b).
     
-    leia(c);
+    leia(c).
 
-    a = a + b;
-
-    escreva(a);
-    escreva(k);
-fimprog;
+    a = 1.
+    b = 2.
+    
+    se (a > b) {
+        escreva(a).
+    } senao {
+        escreva(b).
+    }
+    
+fimprog.

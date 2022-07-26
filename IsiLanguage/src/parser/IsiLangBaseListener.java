@@ -1,11 +1,12 @@
 // Generated from IsiLang.g4 by ANTLR 4.7.1
 package parser;
 
-    import datastructures.IsiSymbol;
-    import datastructures.IsiVariable;
-    import datastructures.IsiSymbolTable;
-    import exceptions.IsiException;
+    import datastructures.*;
+    import exceptions.*;
+    import ast.*;
     import java.util.ArrayList;
+    import java.util.Stack;
+    
 
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -126,6 +127,18 @@ public class IsiLangBaseListener implements IsiLangListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCmdattrib(IsiLangParser.CmdattribContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCmdselecao(IsiLangParser.CmdselecaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCmdselecao(IsiLangParser.CmdselecaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
