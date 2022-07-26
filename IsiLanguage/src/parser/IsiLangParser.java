@@ -39,7 +39,7 @@ public class IsiLangParser extends Parser {
 
 	private static final String[] _LITERAL_NAMES = {
 		null, "'programa'", "'fimprog.'", "'numero'", "'texto'", "'leia'", "'escreva'", 
-		"'se'", "'senao'", "'('", "')'", "'.'", null, "'='", "','", "'{'", "'}'"
+		"'se'", "'senao'", "'('", "')'", "'.'", null, "':='", "','", "'{'", "'}'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, null, null, null, null, null, null, null, null, "AP", "FP", "SC", 
