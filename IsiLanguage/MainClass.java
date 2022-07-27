@@ -11,5 +11,11 @@ public class MainClass{
 	a = 1;
 	b = 2;
 	c = "eita!+";
+	if (b>a) {
+	  System.out.println(a);
+ 	} else {
+	  c= _key.nextLine();
+	}
+
     }
 }
