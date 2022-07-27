@@ -5,10 +5,12 @@ public class MainClass{
 	double  a;
 	double  b;
 	String  c;
+	String  d;
 	a= _key.nextDouble();
 	b= _key.nextDouble();
 	c= _key.nextLine();
-	a = 1;
+	d = "Isto eh um texto!";
+	a = 3;
 	b = 2;
 	c = "eita!+";
 	if (b>a) {
@@ -17,5 +19,6 @@ public class MainClass{
 	  c= _key.nextLine();
 	}
 
+	System.out.println(d);
     }
 }

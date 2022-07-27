@@ -2,12 +2,15 @@ programa
 
     numero a,b.
     texto c.
+    texto d.
+
     leia(a).
     leia(b).
     
     leia(c).
-
-    a := 1.
+    
+    d := "Isto eh um texto!".
+    a := 3.
     b := 2.
     c := "eita!+".
     
@@ -16,5 +19,7 @@ programa
     } senao {
         leia(c).
     }
+
+    escreva(d).
     
 fimprog.
