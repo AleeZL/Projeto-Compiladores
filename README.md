@@ -5,7 +5,7 @@ Compilador construído em java com auxílio da biblioteca ANTLR4.
 
 
 # COMO USAR
-Nesta build inicial, entre com o código em IsiLanguage no arquivo input.isi, rode o programa java e, caso não hajam erros de compilação (os quais podem ser identificados no terminal), o output será gerado no arquivo MainClass.java. Abaixo, um exemplo de código escrito em IsiLanguage:
+Nesta build inicial, rode o programa java. Você verá duas janelas em uma interface gráfica: a da esquerda contém o código em IsiLanguage, o qual você quer compilar. Após inserir o código em IsiLanguage, clique no botão COMPILAR e, caso não hajam erros de compilação (os quais podem ser identificados no terminal e na janela da direita), o output será gerado no arquivo MainClass.java e será apresentado na janela à direita. Abaixo, um exemplo de código escrito em IsiLanguage:
 
        programa
 
@@ -27,6 +27,10 @@ Nesta build inicial, entre com o código em IsiLanguage no arquivo input.isi, ro
               escreva(a).
           } senao {
               leia(c).
+          }
+          
+          enquanto (a > b) {
+              a = a - 1.
           }
 
           escreva(d).
