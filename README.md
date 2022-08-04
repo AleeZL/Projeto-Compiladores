@@ -31,7 +31,7 @@ Nesta build inicial, rode o programa java. Você verá duas janelas em uma inter
           }
           
           enquanto (a > b) {
-              a = a - 1.
+              a := a - 1.
           }
 
           escreva(d).
