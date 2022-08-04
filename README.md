@@ -9,7 +9,7 @@ Nesta build inicial, rode o programa java. Você verá duas janelas em uma inter
 
        programa
 
-          numero a,b.
+          numero a,b, k.
           texto c.
           texto d.
 
@@ -18,9 +18,10 @@ Nesta build inicial, rode o programa java. Você verá duas janelas em uma inter
 
           leia(c).
 
-          d := "Isto eh um texto!".
-          a := 3.
+          d := "Isto nao eh um texto!".
+          a := 5.
           b := 2.
+          k := 7.
           c := "eita!+".
 
           se (b > a) {
@@ -50,15 +51,20 @@ E sua transcrição gerada em Java:
               a= _key.nextDouble();
               b= _key.nextDouble();
               c= _key.nextLine();
-              d = "Isto eh um texto!";
-              a = 3;
+              d = "Isto nao eh um texto!";
+              a = 5;
               b = 2;
+              k = 7;
               c = "eita!+";
               if (b>a) {
                 System.out.println(a);
               } else {
                 c= _key.nextLine();
               }
+              
+              while (a>b) {
+                a = a-10;
+              } 
 
               System.out.println(d);
            }
