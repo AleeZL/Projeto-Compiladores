@@ -1,30 +1,30 @@
-programa
+   programa
 
-    numero a,b, k.
-    texto c.
-    texto d.
+      numero a,b, k.
+      texto c.
+      texto d.
 
-    leia(a).
-    leia(b).
-    
-    leia(c).
-    
-    d := "Isto nao eh um texto!".
-    a := 5.
-    b := 2.
-    k := 7.
-    c := "eita!+".
-    
-    se (b > a) {
+      leia(a).
+      leia(b).
+
+      leia(c).
+
+      d := "Isto nao eh um texto!".
+      a := 5.75.
+      b := 2.
+      k := 7.
+      c := "eita!+".
+
+     se (b > a) {
         escreva(a).
-    } senao {
-        leia(c).
-    }
+      } senao { 
+         escreva(c).
+      }
+      
+      enquanto (a > b) {
+          a := a - 1.
+      }
 
-    enquanto (a > b) {
-        a := a - 10.
-    }
+      escreva(d).
 
-    escreva(d).
-    
-fimprog.
+  fimprog.

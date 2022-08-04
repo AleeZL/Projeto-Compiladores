@@ -33,6 +33,10 @@ grammar IsiLang;
         }
     }
 
+    public void verificaUsage() {
+        program.checaUso();
+    }
+
    public void exibeComandos () {
         for (AbstractCommand c: program.getComandos()) {
             System.out.println(c);
@@ -41,6 +45,10 @@ grammar IsiLang;
 
     public void generateCode() {
         program.generateTarget();
+    }
+
+    public String getGeneratedCode() {
+        return program.getPrograma();
     }
 }
 
@@ -104,6 +112,7 @@ cmdleitura  : 'leia'    AP
                         SC
                 {
                     IsiVariable var = (IsiVariable) symbolTable.get(_readID);
+                    var.registerUsage();
                     CommandLeitura cmd = new CommandLeitura(_readID, var);
                     stack.peek().add(cmd);
                 }
@@ -116,7 +125,9 @@ cmdescrita  : 'escreva' AP
                            }
                         FP
                         SC
-                {
+                {   
+                    IsiVariable var = (IsiVariable) symbolTable.get(_writeID);
+                    var.registerUsage();
                     CommandEscrita cmd = new CommandEscrita(_writeID);
                     stack.peek().add(cmd);
                 }
@@ -130,6 +141,8 @@ cmdattrib   :   ID {
                 ATTR { _exprContent = ""; }
                 expr
                 SC  {
+                        IsiVariable var = (IsiVariable) symbolTable.get(_exprID);
+                        var.registerUsage();
                         CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent);
                         stack.peek().add(cmd);
                     }
@@ -138,10 +151,18 @@ cmdattrib   :   ID {
 cmdselecao  :   'se'    AP 
                         ID {_exprDecision = _input.LT(-1).getText(); }
                         OPREL {_exprDecision += _input.LT(-1).getText(); }
-                        (ID | NUMBER) {_exprDecision += _input.LT(-1).getText(); }
+                        (ID | NUMBER) {
+                                        _exprDecision += _input.LT(-1).getText(); 
+                                        
+                                        if (symbolTable.exists(_exprDecision)) {
+                                            IsiVariable var = (IsiVariable) symbolTable.get(_exprDecision);
+                                            var.registerUsage();
+                                        }
+                                      }
                         FP 
                         ACH 
-                        {   currentThread = new ArrayList<AbstractCommand>();
+                        {   
+                            currentThread = new ArrayList<AbstractCommand>();
                             stack.push(currentThread);
                         }
                         (cmd)+ 
@@ -167,7 +188,13 @@ cmdselecao  :   'se'    AP
 cmdloop : 'enquanto'    AP
                         ID {_exprLoop = _input.LT(-1).getText(); }
                         OPREL {_exprLoop += _input.LT(-1).getText(); }
-                        (ID | NUMBER) {_exprLoop += _input.LT(-1).getText(); }
+                        (ID | NUMBER) {
+                                        _exprLoop += _input.LT(-1).getText(); 
+                                        if (symbolTable.exists(_exprLoop)) {
+                                            IsiVariable var = (IsiVariable) symbolTable.get(_exprLoop);
+                                            var.registerUsage();
+                                        }
+                                      }
                         FP 
                         ACH 
                         {   currentThread = new ArrayList<AbstractCommand>();

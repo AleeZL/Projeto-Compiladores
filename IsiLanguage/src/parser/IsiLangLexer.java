@@ -109,6 +109,10 @@ public class IsiLangLexer extends Lexer {
 	        }
 	    }
 
+	    public void verificaUsage() {
+	        program.checaUso();
+	    }
+
 	   public void exibeComandos () {
 	        for (AbstractCommand c: program.getComandos()) {
 	            System.out.println(c);
@@ -117,6 +121,10 @@ public class IsiLangLexer extends Lexer {
 
 	    public void generateCode() {
 	        program.generateTarget();
+	    }
+
+	    public String getGeneratedCode() {
+	        return program.getPrograma();
 	    }
 
 

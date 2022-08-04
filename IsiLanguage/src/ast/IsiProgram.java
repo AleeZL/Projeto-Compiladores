@@ -2,6 +2,8 @@ package ast;
 
 import datastructures.IsiSymbol;
 import datastructures.IsiSymbolTable;
+import datastructures.IsiVariable;
+import exceptions.IsiException;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -31,7 +33,7 @@ public class IsiProgram {
         str.append("\n}");
         
         try {
-            FileWriter fr = new FileWriter(new File ("MainClass.java"));
+            FileWriter fr = new FileWriter(new File ("output.java"));
             programa = str.toString();
             fr.write(programa);
             fr.close();
@@ -39,6 +41,16 @@ public class IsiProgram {
             ex.printStackTrace();
         }
         
+    }
+    
+    public void checaUso() {
+        for (IsiSymbol symbol: varTable.getAll()) {
+            IsiVariable currentVariable = (IsiVariable) symbol;
+            
+            if (currentVariable.getUsage() == 0) {
+                throw new IsiException("Variavel \"" + currentVariable.getName() + "\" declarada, mas não usada.");
+            }
+        }
     }
     
     public String getPrograma() {

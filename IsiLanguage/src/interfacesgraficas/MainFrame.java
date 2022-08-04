@@ -37,7 +37,7 @@ public class MainFrame extends javax.swing.JFrame {
         
     }
     
-    public void compile(String program) throws IOException {
+    public void compile(String program) {
         
         try {
             //Lê o texto do painel.isi, que serve de entrada para o analisador léxico.
@@ -54,20 +54,28 @@ public class MainFrame extends javax.swing.JFrame {
             parser = new IsiLangParser(tokenStream);
 
             parser.prog();
+            
+            
 
             System.out.println("Sucesso!");
 
             parser.exibeComandos();
 
             parser.generateCode();
+            
+            parser.verificaUsage();
 
             CompiledCode.setText(parser.getGeneratedCode());
+            
+            
         } catch (IsiException ex) {
-            System.err.println("Semantic error - "+ex.getMessage());
             CompiledCode.setText("Semantic error - "+ex.getMessage());
+            System.err.println("Semantic error - "+ex.getMessage());
+            
         } catch (Exception ex) {
-            System.err.println("Error "+ex.getMessage());
             CompiledCode.setText("Error "+ex.getMessage());
+            System.err.println("Error "+ex.getMessage());
+            
         }
     }
 
@@ -135,7 +143,11 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         IsiLanguageInput.setBackground(new java.awt.Color(51, 51, 51));
+        IsiLanguageInput.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "input.isi", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         IsiLanguageInput.setForeground(new java.awt.Color(0, 255, 0));
+        IsiLanguageInput.setCaretColor(new java.awt.Color(255, 255, 255));
+        IsiLanguageInput.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        IsiLanguageInput.setDragEnabled(true);
         IsiLanguageInput.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 IsiLanguageInputKeyReleased(evt);
@@ -145,11 +157,18 @@ public class MainFrame extends javax.swing.JFrame {
 
         CompiledCode.setEditable(false);
         CompiledCode.setBackground(new java.awt.Color(51, 51, 51));
+        CompiledCode.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "output.java", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        CompiledCode.setEditorKit(null);
         CompiledCode.setForeground(new java.awt.Color(0, 255, 0));
+        CompiledCode.setToolTipText("");
+        CompiledCode.setCaretColor(new java.awt.Color(255, 255, 255));
+        CompiledCode.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane2.setViewportView(CompiledCode);
 
         jButton1.setText("COMPILE");
+        jButton1.setToolTipText("Clique para compilar o .isi em .java.");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton1.setFocusable(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -164,9 +183,9 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
@@ -181,8 +200,8 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
                             .addComponent(jScrollPane2)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(279, 279, 279)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(304, 304, 304)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
@@ -197,11 +216,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_IsiLanguageInputKeyReleased
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            compile(IsiLanguageInput.getText());
-        } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        compile(IsiLanguageInput.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     

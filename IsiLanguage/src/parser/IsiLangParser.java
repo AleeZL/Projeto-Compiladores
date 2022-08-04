@@ -116,6 +116,10 @@ public class IsiLangParser extends Parser {
 	        }
 	    }
 
+	    public void verificaUsage() {
+	        program.checaUso();
+	    }
+
 	   public void exibeComandos () {
 	        for (AbstractCommand c: program.getComandos()) {
 	            System.out.println(c);
@@ -125,10 +129,10 @@ public class IsiLangParser extends Parser {
 	    public void generateCode() {
 	        program.generateTarget();
 	    }
-            
-            public String getGeneratedCode() {
-                return program.getPrograma();
-            }
+
+	    public String getGeneratedCode() {
+	        return program.getPrograma();
+	    }
 
 	public IsiLangParser(TokenStream input) {
 		super(input);
@@ -567,6 +571,7 @@ public class IsiLangParser extends Parser {
 			match(SC);
 
 			                    IsiVariable var = (IsiVariable) symbolTable.get(_readID);
+			                    var.registerUsage();
 			                    CommandLeitura cmd = new CommandLeitura(_readID, var);
 			                    stack.peek().add(cmd);
 			                
@@ -622,7 +627,9 @@ public class IsiLangParser extends Parser {
 			match(FP);
 			setState(82);
 			match(SC);
-
+			   
+			                    IsiVariable var = (IsiVariable) symbolTable.get(_writeID);
+			                    var.registerUsage();
 			                    CommandEscrita cmd = new CommandEscrita(_writeID);
 			                    stack.peek().add(cmd);
 			                
@@ -680,6 +687,8 @@ public class IsiLangParser extends Parser {
 			setState(90);
 			match(SC);
 
+			                        IsiVariable var = (IsiVariable) symbolTable.get(_exprID);
+			                        var.registerUsage();
 			                        CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent);
 			                        stack.peek().add(cmd);
 			                    
@@ -760,12 +769,20 @@ public class IsiLangParser extends Parser {
 				_errHandler.reportMatch(this);
 				consume();
 			}
-			_exprDecision += _input.LT(-1).getText(); 
+
+			                                        _exprDecision += _input.LT(-1).getText(); 
+			                                        
+			                                        if (symbolTable.exists(_exprDecision)) {
+			                                            IsiVariable var = (IsiVariable) symbolTable.get(_exprDecision);
+			                                            var.registerUsage();
+			                                        }
+			                                      
 			setState(101);
 			match(FP);
 			setState(102);
 			match(ACH);
-			   currentThread = new ArrayList<AbstractCommand>();
+			   
+			                            currentThread = new ArrayList<AbstractCommand>();
 			                            stack.push(currentThread);
 			                        
 			setState(105); 

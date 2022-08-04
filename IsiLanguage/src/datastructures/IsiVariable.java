@@ -8,12 +8,14 @@ public class IsiVariable extends IsiSymbol {
     
     private int type;
     private String value;
+    private int usage;
     
     
     public IsiVariable (String name, int type, String value) {
         super(name);
         this.type = type;
         this.value = value;
+        this.usage = 0;
     }
 
     public int getType() {
@@ -23,6 +25,10 @@ public class IsiVariable extends IsiSymbol {
     public void setType(int type) {
         this.type = type;
     }
+    
+    public void registerUsage() {
+        this.usage++;
+    }
 
     public String getValue() {
         return value;
@@ -30,6 +36,10 @@ public class IsiVariable extends IsiSymbol {
 
     public void setValue(String value) {
         this.value = value;
+    }
+    
+    public int getUsage() {
+        return usage;
     }
 
     @Override

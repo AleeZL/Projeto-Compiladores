@@ -11,14 +11,14 @@ public class MainClass{
 	b= _key.nextDouble();
 	c= _key.nextLine();
 	d = "Isto nao eh um texto!";
-	a = 5;
+	a = 5.75;
 	b = 2;
 	k = 7;
 	c = "eita!+";
 	if (b>a) {
-	  System.out.println(b);
+	  System.out.println(a);
  	} else {
-	  c= _key.nextLine();
+	  System.out.println(c);
 	}
 
 	while (a>b) {

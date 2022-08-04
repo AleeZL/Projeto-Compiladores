@@ -27,7 +27,6 @@ public class IsiLanguage {
             if (useGraphicalInterface) {
                 MainFrame frame = new MainFrame();
                 frame.init();
-                
             } else {
                 IsiLangLexer    lexer;
                 IsiLangParser   parser;
