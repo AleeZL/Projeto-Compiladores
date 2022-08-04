@@ -3,6 +3,18 @@ Projeto para disciplina de Compiladores.
 
 Compilador construído em java com auxílio da biblioteca ANTLR4.
 
+# CHECKLIST
+O checklist inicial foi quase completado, sendo ele:
+
+-Possuir 2 tipos de dados                                      | OK - String e Double. 	       
+-Possuir a instrução de decisão                                | OK - if/else.	
+-Pelo menos 1 estrutura de repetição                           | OK - while.
+-Verificar Atrib. com compatibilidade de tipos (semântica)     | Falta verificação.
+-Possuir operações de Entrada e Saída	                     | OK - read e write.
+-Aceitar números decimais 	                                   | OK - o tipo double aceita decimais.
+-Verificar decl. de var. (ñ usar var. que ñ foram declaradas)	| OK - Apresenta uma exceção informando qual variável não foi declarada.
+-Verificar se há var. declaradas e não-utilizadas (warning)    | OK/REVISAR - Apresenta uma exceção informando qual variável não foi utilizada. Trocar para warning.
+-Geração de pelo menos 1 linguagem destino (C/Java/Python)     | OK - linguagem de destino: Java.
 
 # COMO USAR
 Nesta build inicial, rode o programa java. Você verá duas janelas em uma interface gráfica: a da esquerda contém o código em IsiLanguage, o qual você quer compilar. Após inserir o código em IsiLanguage, clique no botão COMPILAR e, caso não hajam erros de compilação (os quais podem ser identificados no terminal e na janela da direita), o output será gerado no arquivo MainClass.java e será apresentado na janela à direita. Abaixo, um exemplo de código escrito em IsiLanguage:
@@ -19,7 +31,7 @@ Nesta build inicial, rode o programa java. Você verá duas janelas em uma inter
           leia(c).
 
           d := "Isto nao eh um texto!".
-          a := 5.
+          a := 5.75.
           b := 2.
           k := 7.
           c := "eita!+".
