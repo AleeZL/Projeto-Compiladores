@@ -18,30 +18,37 @@ public class IsiLanguage {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        //Altere esta variável para deixar de exibir a interface gráfica.
+        Boolean useGraphicalInterface = true;
+        
+        
         try {
-            
-            //MainFrame frame = new MainFrame();
-            //frame.init();
-            
-            IsiLangLexer    lexer;
-            IsiLangParser   parser;
-            
-            //Lê o arquivo input.isi, que serve de entrada para o analisador léxico.
-            lexer = new IsiLangLexer(CharStreams.fromFileName("input.isi"));
-            
-            //Gera o fluxo de tokens, que será utilizado no parser.
-            CommonTokenStream tokenStream = new CommonTokenStream(lexer);
-            
-            //Criação do parser a partir do tokenStream
-            parser = new IsiLangParser(tokenStream);
-            
-            parser.prog();
-            
-            System.out.println("Sucesso!");
-            
-            parser.exibeComandos();
-            
-            parser.generateCode();
+            if (useGraphicalInterface) {
+                MainFrame frame = new MainFrame();
+                frame.init();
+                
+            } else {
+                IsiLangLexer    lexer;
+                IsiLangParser   parser;
+
+                //Lê o arquivo input.isi, que serve de entrada para o analisador léxico.
+                lexer = new IsiLangLexer(CharStreams.fromFileName("input.isi"));
+
+                //Gera o fluxo de tokens, que será utilizado no parser.
+                CommonTokenStream tokenStream = new CommonTokenStream(lexer);
+
+                //Criação do parser a partir do tokenStream
+                parser = new IsiLangParser(tokenStream);
+
+                parser.prog();
+
+                System.out.println("Sucesso!");
+
+                parser.exibeComandos();
+
+                parser.generateCode();
+            }
                     
             
         } catch (IsiException ex) {

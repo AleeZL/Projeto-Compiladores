@@ -125,6 +125,10 @@ public class IsiLangParser extends Parser {
 	    public void generateCode() {
 	        program.generateTarget();
 	    }
+            
+            public String getGeneratedCode() {
+                return program.getPrograma();
+            }
 
 	public IsiLangParser(TokenStream input) {
 		super(input);

@@ -11,6 +11,7 @@ public class IsiProgram {
     private IsiSymbolTable varTable;
     private ArrayList<AbstractCommand> comandos;
     private String programName;
+    private String programa;
     
     public void generateTarget() {
         StringBuilder str = new StringBuilder();
@@ -31,12 +32,17 @@ public class IsiProgram {
         
         try {
             FileWriter fr = new FileWriter(new File ("MainClass.java"));
-            fr.write(str.toString());
+            programa = str.toString();
+            fr.write(programa);
             fr.close();
         } catch (Exception ex){
             ex.printStackTrace();
         }
         
+    }
+    
+    public String getPrograma() {
+        return programa;
     }
 
     public IsiSymbolTable getVarTable() {

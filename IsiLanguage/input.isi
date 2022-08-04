@@ -1,6 +1,6 @@
 programa
 
-    numero a,b.
+    numero a,b, k.
     texto c.
     texto d.
 
@@ -9,9 +9,10 @@ programa
     
     leia(c).
     
-    d := "Isto eh um texto!".
-    a := 3.
+    d := "Isto nao eh um texto!".
+    a := 5.
     b := 2.
+    k := 7.
     c := "eita!+".
     
     se (b > a) {
@@ -21,7 +22,7 @@ programa
     }
 
     enquanto (a > b) {
-        a := a - 1.
+        a := a - 10.
     }
 
     escreva(d).

@@ -6,12 +6,14 @@ public class MainClass{
 	double  b;
 	String  c;
 	String  d;
+	double  k;
 	a= _key.nextDouble();
 	b= _key.nextDouble();
 	c= _key.nextLine();
-	d = "Isto eh um texto!";
-	a = 3;
+	d = "Isto nao eh um texto!";
+	a = 5;
 	b = 2;
+	k = 7;
 	c = "eita!+";
 	if (b>a) {
 	  System.out.println(a);
@@ -20,7 +22,7 @@ public class MainClass{
 	}
 
 	while (a>b) {
-	  a = a-1;
+	  a = a-10;
  	} 
 	System.out.println(d);
     }

@@ -1,32 +1,74 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfacesgraficas;
 
+import exceptions.IsiException;
 import java.awt.Color;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.plaf.basic.BasicTextUI;
 import javax.swing.text.DefaultHighlighter;
 import javax.swing.text.Highlighter;
+import main.IsiLanguage;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
+import parser.IsiLangLexer;
+import parser.IsiLangParser;
 
-/**
- *
- * @author Alexandre
- */
+
 public class MainFrame extends javax.swing.JFrame {
     private String inicio = "<html>";
+    private IsiLangLexer    lexer;
+    private IsiLangParser   parser;
     
     
-    public MainFrame() {
+    public MainFrame() throws IOException {
         initComponents();
         
-        IsiLanguageInput.setContentType("text/html");
-        IsiLanguageInput.setText(inicio);
+        IsiLanguageInput.setText(CharStreams.fromFileName("input.isi").toString());
+        //IsiLanguageInput.setContentType("text/html");
+        //IsiLanguageInput.setText(inicio);
     }
     
-    public void init() {
+    public void init() throws IOException {
         setVisible(true);
+
+        
+    }
+    
+    public void compile(String program) throws IOException {
+        
+        try {
+            //Lê o texto do painel.isi, que serve de entrada para o analisador léxico.
+            FileWriter fr = new FileWriter(new File ("input.isi"));
+            fr.write(program);
+            fr.close();
+
+            lexer = new IsiLangLexer(CharStreams.fromFileName("input.isi"));
+
+            //Gera o fluxo de tokens, que será utilizado no parser.
+            CommonTokenStream tokenStream = new CommonTokenStream(lexer);
+
+            //Criação do parser a partir do tokenStream
+            parser = new IsiLangParser(tokenStream);
+
+            parser.prog();
+
+            System.out.println("Sucesso!");
+
+            parser.exibeComandos();
+
+            parser.generateCode();
+
+            CompiledCode.setText(parser.getGeneratedCode());
+        } catch (IsiException ex) {
+            System.err.println("Semantic error - "+ex.getMessage());
+            CompiledCode.setText("Semantic error - "+ex.getMessage());
+        } catch (Exception ex) {
+            System.err.println("Error "+ex.getMessage());
+            CompiledCode.setText("Error "+ex.getMessage());
+        }
     }
 
     
@@ -41,14 +83,14 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         IsiLanguageInput = new javax.swing.JEditorPane();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jEditorPane1 = new javax.swing.JEditorPane();
+        CompiledCode = new javax.swing.JEditorPane();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setLocationByPlatform(true);
         setMaximumSize(new java.awt.Dimension(1300, 900));
         setMinimumSize(new java.awt.Dimension(1300, 900));
-        setPreferredSize(new java.awt.Dimension(1300, 900));
         setResizable(false);
         setSize(new java.awt.Dimension(1300, 900));
 
@@ -92,6 +134,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(GreenBackground, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, Short.MAX_VALUE))
         );
 
+        IsiLanguageInput.setBackground(new java.awt.Color(51, 51, 51));
+        IsiLanguageInput.setForeground(new java.awt.Color(0, 255, 0));
         IsiLanguageInput.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 IsiLanguageInputKeyReleased(evt);
@@ -99,7 +143,18 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(IsiLanguageInput);
 
-        jScrollPane2.setViewportView(jEditorPane1);
+        CompiledCode.setEditable(false);
+        CompiledCode.setBackground(new java.awt.Color(51, 51, 51));
+        CompiledCode.setForeground(new java.awt.Color(0, 255, 0));
+        jScrollPane2.setViewportView(CompiledCode);
+
+        jButton1.setText("COMPILE");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,17 +165,24 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
+                .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(279, 279, 279)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
@@ -134,14 +196,23 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_IsiLanguageInputKeyReleased
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            compile(IsiLanguageInput.getText());
+        } catch (IOException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JEditorPane CompiledCode;
     private javax.swing.JLabel GreenBackground;
     private javax.swing.JEditorPane IsiLanguageInput;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel UFABCLogo;
-    private javax.swing.JEditorPane jEditorPane1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
