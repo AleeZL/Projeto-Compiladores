@@ -20,6 +20,10 @@ programa
         leia(c).
     }
 
+    enquanto (a > b) {
+        a := a - 1.
+    }
+
     escreva(d).
     
 fimprog.

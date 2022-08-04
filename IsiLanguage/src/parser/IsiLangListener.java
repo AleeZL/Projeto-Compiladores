@@ -6,7 +6,6 @@ package parser;
     import ast.*;
     import java.util.ArrayList;
     import java.util.Stack;
-    
 
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -115,6 +114,16 @@ public interface IsiLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCmdselecao(IsiLangParser.CmdselecaoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link IsiLangParser#cmdloop}.
+	 * @param ctx the parse tree
+	 */
+	void enterCmdloop(IsiLangParser.CmdloopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link IsiLangParser#cmdloop}.
+	 * @param ctx the parse tree
+	 */
+	void exitCmdloop(IsiLangParser.CmdloopContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link IsiLangParser#expr}.
 	 * @param ctx the parse tree

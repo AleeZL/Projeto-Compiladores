@@ -1,6 +1,7 @@
 package main;
 
 import exceptions.IsiException;
+import interfacesgraficas.MainFrame;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import parser.IsiLangLexer;
@@ -18,6 +19,10 @@ public class IsiLanguage {
      */
     public static void main(String[] args) {
         try {
+            
+            //MainFrame frame = new MainFrame();
+            //frame.init();
+            
             IsiLangLexer    lexer;
             IsiLangParser   parser;
             

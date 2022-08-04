@@ -19,6 +19,9 @@ public class MainClass{
 	  c= _key.nextLine();
 	}
 
+	while (a>b) {
+	  a = a-1;
+ 	} 
 	System.out.println(d);
     }
 }

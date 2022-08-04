@@ -6,7 +6,6 @@ package parser;
     import ast.*;
     import java.util.ArrayList;
     import java.util.Stack;
-    
 
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -139,6 +138,18 @@ public class IsiLangBaseListener implements IsiLangListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCmdselecao(IsiLangParser.CmdselecaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCmdloop(IsiLangParser.CmdloopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCmdloop(IsiLangParser.CmdloopContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

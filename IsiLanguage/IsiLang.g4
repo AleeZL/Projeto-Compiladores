@@ -6,7 +6,6 @@ grammar IsiLang;
     import ast.*;
     import java.util.ArrayList;
     import java.util.Stack;
-    
 }
 
 @members{
@@ -23,6 +22,7 @@ grammar IsiLang;
     private String _exprID;
     private String _exprContent;
     private String _exprDecision;
+    private String _exprLoop;
     private ArrayList<AbstractCommand> listaTrue;
     private ArrayList<AbstractCommand> listaFalse;
 
@@ -91,6 +91,7 @@ cmd     : cmdleitura
         | cmdescrita 
         | cmdattrib
         | cmdselecao
+        | cmdloop
         ;
 
 
@@ -162,6 +163,25 @@ cmdselecao  :   'se'    AP
                             }
                 )?
             ;
+
+cmdloop : 'enquanto'    AP
+                        ID {_exprLoop = _input.LT(-1).getText(); }
+                        OPREL {_exprLoop += _input.LT(-1).getText(); }
+                        (ID | NUMBER) {_exprLoop += _input.LT(-1).getText(); }
+                        FP 
+                        ACH 
+                        {   currentThread = new ArrayList<AbstractCommand>();
+                            stack.push(currentThread);
+                        }
+                        (cmd)+
+                        FCH
+                        {
+                            listaTrue = stack.pop();
+                            CommandLoop cmd = new CommandLoop(_exprLoop, listaTrue);
+                            stack.peek().add(cmd);
+                        }
+                        
+        ;
 
 expr    :   termo (
             OP { _exprContent += _input.LT(-1).getText(); }
