@@ -3,8 +3,8 @@ Projeto para disciplina de Compiladores.
 
 Compilador construído em java com auxílio da biblioteca ANTLR4.
 
-# CHECKLIST: completar o checklist eleva a nota entre C e D.
-O checklist inicial foi quase completado, sendo ele:
+# CHECKLIST
+Completar o checklist eleva a nota entre C e D. O checklist inicial foi quase completado, sendo ele:
 
        -Possuir 2 tipos de dados                                             | OK - String e Double.
        -Possuir a instrução de decisão                                       | OK - if/else.
@@ -17,7 +17,9 @@ O checklist inicial foi quase completado, sendo ele:
        -Geração de pelo menos 1 linguagem destino (C/Java/Python)            | OK - linguagem de destino: Java.
 
 
-# ANEXOS: Adicionar elementos dos anexos pode elevar a nota até A.
+# ANEXOS
+Adicionar elementos dos anexos pode elevar a nota até A.
+
 Anexo 1 - Elementos adicionais (pelo menos 2 dos itens abaixo)
 
        Nova instrução para Switch/Case (escolha/caso)
