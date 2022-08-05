@@ -689,6 +689,7 @@ public class IsiLangParser extends Parser {
 
 			                        IsiVariable var = (IsiVariable) symbolTable.get(_exprID);
 			                        var.registerUsage();
+			                        
 			                        CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent);
 			                        stack.peek().add(cmd);
 			                    
@@ -914,7 +915,13 @@ public class IsiLangParser extends Parser {
 				_errHandler.reportMatch(this);
 				consume();
 			}
-			_exprLoop += _input.LT(-1).getText(); 
+
+			                                        _exprLoop += _input.LT(-1).getText(); 
+			                                        if (symbolTable.exists(_exprLoop)) {
+			                                            IsiVariable var = (IsiVariable) symbolTable.get(_exprLoop);
+			                                            var.registerUsage();
+			                                        }
+			                                      
 			setState(132);
 			match(FP);
 			setState(133);

@@ -3,6 +3,7 @@
       numero a,b, k.
       texto c.
       texto d.
+      texto s.
 
       leia(a).
       leia(b).
@@ -11,7 +12,7 @@
 
       d := "Isto nao eh um texto!".
       a := 5.75.
-      b := 2.
+      b := "teste".
       k := 7.
       c := "eita!+".
 

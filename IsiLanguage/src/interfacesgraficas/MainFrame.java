@@ -1,16 +1,9 @@
 package interfacesgraficas;
 
 import exceptions.IsiException;
-import java.awt.Color;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.plaf.basic.BasicTextUI;
-import javax.swing.text.DefaultHighlighter;
-import javax.swing.text.Highlighter;
-import main.IsiLanguage;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import parser.IsiLangLexer;
@@ -18,16 +11,16 @@ import parser.IsiLangParser;
 
 
 public class MainFrame extends javax.swing.JFrame {
-    private String inicio = "<html>";
     private IsiLangLexer    lexer;
     private IsiLangParser   parser;
+    private String          code;
     
     
     public MainFrame() throws IOException {
         initComponents();
         
         IsiLanguageInput.setText(CharStreams.fromFileName("input.isi").toString());
-        //IsiLanguageInput.setContentType("text/html");
+        
         //IsiLanguageInput.setText(inicio);
     }
     
@@ -64,8 +57,10 @@ public class MainFrame extends javax.swing.JFrame {
             parser.generateCode();
             
             parser.verificaUsage();
-
-            CompiledCode.setText(parser.getGeneratedCode());
+            
+            this.code = parser.getGeneratedCode();
+            
+            CompiledCode.setText(this.code);
             
             
         } catch (IsiException ex) {
@@ -78,7 +73,6 @@ public class MainFrame extends javax.swing.JFrame {
             
         }
     }
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -106,7 +100,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         UFABCLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/UFABC_Logo.png"))); // NOI18N
 
-        Titulo.setFont(new java.awt.Font("Arial", 0, 32)); // NOI18N
+        Titulo.setFont(new java.awt.Font("SansSerif", 1, 32)); // NOI18N
         Titulo.setForeground(new java.awt.Color(255, 255, 0));
         Titulo.setText("ISILANGUAGE COMPILER");
 
@@ -120,8 +114,8 @@ public class MainFrame extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(Titulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 723, Short.MAX_VALUE)
+                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(UFABCLogo)
                 .addContainerGap())
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,13 +124,10 @@ public class MainFrame extends javax.swing.JFrame {
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(UFABCLogo))
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(Titulo)))
+                    .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UFABCLogo))
                 .addGap(11, 11, 11))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(GreenBackground, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, Short.MAX_VALUE))
@@ -144,7 +135,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         IsiLanguageInput.setBackground(new java.awt.Color(51, 51, 51));
         IsiLanguageInput.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "input.isi", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
-        IsiLanguageInput.setForeground(new java.awt.Color(0, 255, 0));
+        IsiLanguageInput.setForeground(new java.awt.Color(255, 255, 255));
         IsiLanguageInput.setCaretColor(new java.awt.Color(255, 255, 255));
         IsiLanguageInput.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         IsiLanguageInput.setDragEnabled(true);
@@ -185,7 +176,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
@@ -209,12 +200,17 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void IsiLanguageInputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IsiLanguageInputKeyReleased
-
-        if (IsiLanguageInput.getText().contains("\ntexto ")){
-            IsiLanguageInput.setText(inicio + IsiLanguageInput.getText().replace("\ntexto ", "<span style=\"color:red\">" + "\ntexto " + "</span>"));
-        }
+        //IsiLanguageInput.setContentType("text/html");
+        
+        IsiLanguageInput.getText();
+        
+        
+        
+        
+        
     }//GEN-LAST:event_IsiLanguageInputKeyReleased
 
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         compile(IsiLanguageInput.getText());
     }//GEN-LAST:event_jButton1ActionPerformed

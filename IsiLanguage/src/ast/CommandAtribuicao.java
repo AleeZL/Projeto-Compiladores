@@ -7,7 +7,7 @@ public class CommandAtribuicao extends AbstractCommand {
     
     public CommandAtribuicao(String id, String expr) {
         this.id = id;
-        this.expr = expr;
+        this.expr = expr;        
     }
     
     

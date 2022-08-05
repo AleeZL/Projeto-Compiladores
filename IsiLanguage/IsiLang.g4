@@ -143,6 +143,7 @@ cmdattrib   :   ID {
                 SC  {
                         IsiVariable var = (IsiVariable) symbolTable.get(_exprID);
                         var.registerUsage();
+                        
                         CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent);
                         stack.peek().add(cmd);
                     }

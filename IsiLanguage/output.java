@@ -5,6 +5,7 @@ public class MainClass{
 	double  a;
 	double  b;
 	String  c;
+	String  s;
 	String  d;
 	double  k;
 	a= _key.nextDouble();
@@ -12,7 +13,7 @@ public class MainClass{
 	c= _key.nextLine();
 	d = "Isto nao eh um texto!";
 	a = 5.75;
-	b = 2;
+	b = "teste";
 	k = 7;
 	c = "eita!+";
 	if (b>a) {

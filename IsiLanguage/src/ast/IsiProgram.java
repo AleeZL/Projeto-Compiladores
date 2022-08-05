@@ -4,9 +4,11 @@ import datastructures.IsiSymbol;
 import datastructures.IsiSymbolTable;
 import datastructures.IsiVariable;
 import exceptions.IsiException;
+import java.awt.Component;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public class IsiProgram {
@@ -48,7 +50,9 @@ public class IsiProgram {
             IsiVariable currentVariable = (IsiVariable) symbol;
             
             if (currentVariable.getUsage() == 0) {
-                throw new IsiException("Variavel \"" + currentVariable.getName() + "\" declarada, mas não usada.");
+                //Mostra warning que a variável não foi utilizada.
+                System.out.println("Warning: variavel \"" + currentVariable.getName() + "\" declarada, mas não usada.");
+                JOptionPane.showMessageDialog(null, ("Warning: variavel \"" + currentVariable.getName() + "\" declarada, mas não usada."));
             }
         }
     }
