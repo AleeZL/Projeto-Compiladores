@@ -3,7 +3,7 @@ Projeto para disciplina de Compiladores.
 
 Compilador construído em java com auxílio da biblioteca ANTLR4.
 
-# CHECKLIST
+# CHECKLIST: completar o checklist eleva a nota entre C e D.
 O checklist inicial foi quase completado, sendo ele:
 
 -Possuir 2 tipos de dados                                      | OK - String e Double.
@@ -23,6 +23,22 @@ O checklist inicial foi quase completado, sendo ele:
 -Verificar se há var. declaradas e não-utilizadas (warning)    | OK - Apresenta um warning (em uma janela) informando qual variável foi declarada e não usada.
 
 -Geração de pelo menos 1 linguagem destino (C/Java/Python)     | OK - linguagem de destino: Java.
+
+
+# ANEXOS: Adicionar elementos dos anexos pode elevar a nota até A.
+Anexo 1 - Elementos adicionais (pelo menos 2 dos itens abaixo)
+       Nova instrução para Switch/Case (escolha/caso)
+       Mais tipos de dados
+       Inclusão de novos operadores (exponenciação, raiz quadrada, logaritmos)
+       Geração de código para mais de uma linguagem diferente
+
+Anexo 2 - Elementos Extraordinarios (pelo menos 2 itens abaixo)
+       Criar um interpretador a partir da AST
+       Criar um editor com Highlights de palavras reservadas (editor Desktop)
+       Criar um editor Web para o código
+       Tornar o compilador um Webservice para receber programas e enviar respostas de possíveis erros
+
+
 
 # COMO USAR
 Nesta build inicial, rode o programa java. Você verá duas janelas em uma interface gráfica: a da esquerda contém o código em IsiLanguage, o qual você quer compilar. Após inserir o código em IsiLanguage, clique no botão COMPILAR e, caso não hajam erros de compilação (os quais podem ser identificados no terminal e na janela da direita), o output será gerado no arquivo output.java e será apresentado na janela à direita. Abaixo, um exemplo de código escrito em IsiLanguage:
