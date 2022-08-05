@@ -25,7 +25,7 @@ O checklist inicial foi quase completado, sendo ele:
 -Geração de pelo menos 1 linguagem destino (C/Java/Python)     | OK - linguagem de destino: Java.
 
 # COMO USAR
-Nesta build inicial, rode o programa java. Você verá duas janelas em uma interface gráfica: a da esquerda contém o código em IsiLanguage, o qual você quer compilar. Após inserir o código em IsiLanguage, clique no botão COMPILAR e, caso não hajam erros de compilação (os quais podem ser identificados no terminal e na janela da direita), o output será gerado no arquivo MainClass.java e será apresentado na janela à direita. Abaixo, um exemplo de código escrito em IsiLanguage:
+Nesta build inicial, rode o programa java. Você verá duas janelas em uma interface gráfica: a da esquerda contém o código em IsiLanguage, o qual você quer compilar. Após inserir o código em IsiLanguage, clique no botão COMPILAR e, caso não hajam erros de compilação (os quais podem ser identificados no terminal e na janela da direita), o output será gerado no arquivo output.java e será apresentado na janela à direita. Abaixo, um exemplo de código escrito em IsiLanguage:
 
        programa
 
