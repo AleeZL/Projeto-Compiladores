@@ -20,7 +20,7 @@ O checklist inicial foi quase completado, sendo ele:
 
 -Verificar decl. de var. (ñ usar var. que ñ foram declaradas)	| OK - Apresenta uma exceção informando qual variável não foi declarada.
 
--Verificar se há var. declaradas e não-utilizadas (warning)    | OK/REVISAR - Apresenta uma exceção informando qual variável não foi utilizada. Trocar para warning.
+-Verificar se há var. declaradas e não-utilizadas (warning)    | OK - Apresenta um warning (em uma janela) informando qual variável foi declarada e não usada.
 
 -Geração de pelo menos 1 linguagem destino (C/Java/Python)     | OK - linguagem de destino: Java.
 
