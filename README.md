@@ -27,12 +27,14 @@ O checklist inicial foi quase completado, sendo ele:
 
 # ANEXOS: Adicionar elementos dos anexos pode elevar a nota até A.
 Anexo 1 - Elementos adicionais (pelo menos 2 dos itens abaixo)
+
        Nova instrução para Switch/Case (escolha/caso)
        Mais tipos de dados
        Inclusão de novos operadores (exponenciação, raiz quadrada, logaritmos)
        Geração de código para mais de uma linguagem diferente
 
 Anexo 2 - Elementos Extraordinarios (pelo menos 2 itens abaixo)
+
        Criar um interpretador a partir da AST
        Criar um editor com Highlights de palavras reservadas (editor Desktop)
        Criar um editor Web para o código
