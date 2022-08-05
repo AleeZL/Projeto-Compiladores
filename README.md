@@ -11,7 +11,7 @@ O checklist inicial foi quase completado, sendo ele:
        -Pelo menos 1 estrutura de repetição                                  | OK - while.
        -Verificar Atrib. com compatibilidade de tipos (semântica)            | Falta verificação.
        -Possuir operações de Entrada e Saída                                 | OK - read e write.
-       -Aceitar números decimais 	                                          | OK - o tipo double aceita decimais.
+       -Aceitar números decimais                                             | OK - o tipo double aceita decimais.
        -Verificar decl. de var. (ñ usar var. que ñ foram declaradas)         | OK - Apresenta uma exceção informando qual variável não foi declarada.
        -Verificar se há var. declaradas e não-utilizadas (warning)           | OK - Apresenta um warning (em uma janela) informando qual variável foi declarada e não usada.
        -Geração de pelo menos 1 linguagem destino (C/Java/Python)            | OK - linguagem de destino: Java.
