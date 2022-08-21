@@ -4,7 +4,7 @@ Projeto para disciplina de Compiladores.
 Compilador construído em java com auxílio da biblioteca ANTLR4.
 
 # CHECKLIST
-Completar o checklist eleva a nota entre C e D. O checklist foi completado em 21/08/2022, sendo ele:
+Completar o checklist eleva a nota entre C e D. O checklist foi completado em 2022/08/21, sendo ele:
 
        -Possuir 2 tipos de dados                                             | OK - String e Double.
        -Possuir a instrução de decisão                                       | OK - if/else.
