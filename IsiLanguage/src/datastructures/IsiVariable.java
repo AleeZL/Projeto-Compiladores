@@ -57,4 +57,17 @@ public class IsiVariable extends IsiSymbol {
         
         return str + " " + super.name + ';';
     }
+    
+    public String generateCCode() {
+        String str;
+        String extra = "";
+        if (type == NUMBER) {
+            str = "float ";
+        } else {
+            str = "char *";
+            extra = "[1000]"; //Adicionado uma string de tamanho fixo para simplificar.
+        }
+        
+        return str + super.name + ';';
+    }
 }

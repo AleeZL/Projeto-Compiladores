@@ -22,6 +22,19 @@ public class CommandLeitura extends AbstractCommand {
     public String toString() {
         return "CommandLeitura{" + "id=" + id + '}';
     }
+
+    @Override
+    public String generateCCode() {
+        StringBuilder str = new StringBuilder();
+        
+        if (var.getType()==IsiVariable.NUMBER) {
+            str.append("scanf(\"%f\", &" + id +");");
+        } else {
+            str.append("scanf(\"%s\", " + id + ");");
+        }
+        
+        return str.toString();
+    }
     
     
     

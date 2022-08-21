@@ -24,18 +24,18 @@ public class IsiProgram {
         str.append("    public static void main (String args[]){ \n");
         str.append("        Scanner _key = new Scanner(System.in);\n");
         for (IsiSymbol symbol: varTable.getAll()) {
-            str.append("\t" +symbol.generateJavaCode() + "\n");
+            str.append("        " +symbol.generateJavaCode() + "\n");
         }
         
         for (AbstractCommand command: comandos) {
-            str.append("\t" + command.generateJavaCode()+ "\n");
+            str.append("        " + command.generateJavaCode()+ "\n");
         }
         
         str.append("    }");
         str.append("\n}");
         
         try {
-            FileWriter fr = new FileWriter(new File ("output.java"));
+            FileWriter fr = new FileWriter(new File ("MainClass.java"));
             programa = str.toString();
             fr.write(programa);
             fr.close();
@@ -43,6 +43,31 @@ public class IsiProgram {
             ex.printStackTrace();
         }
         
+    }
+    
+    public void generateC() {
+        StringBuilder str = new StringBuilder();
+        str.append("#include <stdio.h>\n");
+        str.append("\n\n");
+        str.append("int main(){ \n");
+        for (IsiSymbol symbol: varTable.getAll()) {
+            str.append("        " +symbol.generateCCode() + "\n");
+        }
+        
+        for (AbstractCommand command: comandos) {
+            str.append("        " + command.generateCCode()+ "\n");
+        }
+        str.append("        return 0;");
+        str.append("\n}");
+        
+        try {
+            FileWriter fr = new FileWriter(new File ("output.c"));
+            programa = str.toString();
+            fr.write(programa);
+            fr.close();
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
     }
     
     public void checaUso() {

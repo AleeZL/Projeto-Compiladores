@@ -130,6 +130,10 @@ public class IsiLangParser extends Parser {
 	        program.generateTarget();
 	    }
 
+	    public void generateC() {
+	        program.generateC();
+	    }
+
 	    public String getGeneratedCode() {
 	        return program.getPrograma();
 	    }
@@ -630,7 +634,7 @@ public class IsiLangParser extends Parser {
 			   
 			                    IsiVariable var = (IsiVariable) symbolTable.get(_writeID);
 			                    var.registerUsage();
-			                    CommandEscrita cmd = new CommandEscrita(_writeID);
+			                    CommandEscrita cmd = new CommandEscrita(_writeID, var);
 			                    stack.peek().add(cmd);
 			                
 			}
@@ -689,8 +693,8 @@ public class IsiLangParser extends Parser {
 
 			                        IsiVariable var = (IsiVariable) symbolTable.get(_exprID);
 			                        var.registerUsage();
-			                        
-			                        CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent);
+			                        int type = var.getType();
+			                        CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent, type);
 			                        stack.peek().add(cmd);
 			                    
 			}

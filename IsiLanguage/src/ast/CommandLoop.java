@@ -15,11 +15,11 @@ public class CommandLoop extends AbstractCommand {
     @Override
     public String generateJavaCode() {
         StringBuilder str = new StringBuilder();
-        str.append("while ("+ condition + ") {\n");
+        str.append("while ("+ condition + ") {\n        ");
         for (AbstractCommand cmd: listaTrue) {
-            str.append("\t  " + cmd.generateJavaCode());
+            str.append("        " + cmd.generateJavaCode());
         }
-        str.append("\n \t} ");
+        str.append("\n        } ");
         
         return str.toString();
     }
@@ -27,5 +27,17 @@ public class CommandLoop extends AbstractCommand {
     @Override
     public String toString() {
         return "CommandLoop{" + "condition=" + condition + ", listaTrue=" + listaTrue + '}';
+    }
+
+    @Override
+    public String generateCCode() {
+        StringBuilder str = new StringBuilder();
+        str.append("while ("+ condition + ") {\n        ");
+        for (AbstractCommand cmd: listaTrue) {
+            str.append("        " + cmd.generateCCode());
+        }
+        str.append("\n        } ");
+        
+        return str.toString();
     }
 }

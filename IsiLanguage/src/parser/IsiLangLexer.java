@@ -123,6 +123,10 @@ public class IsiLangLexer extends Lexer {
 	        program.generateTarget();
 	    }
 
+	    public void generateC() {
+	        program.generateC();
+	    }
+
 	    public String getGeneratedCode() {
 	        return program.getPrograma();
 	    }

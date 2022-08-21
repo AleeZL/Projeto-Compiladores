@@ -47,6 +47,10 @@ grammar IsiLang;
         program.generateTarget();
     }
 
+    public void generateC() {
+        program.generateC();
+    }
+
     public String getGeneratedCode() {
         return program.getPrograma();
     }
@@ -128,7 +132,7 @@ cmdescrita  : 'escreva' AP
                 {   
                     IsiVariable var = (IsiVariable) symbolTable.get(_writeID);
                     var.registerUsage();
-                    CommandEscrita cmd = new CommandEscrita(_writeID);
+                    CommandEscrita cmd = new CommandEscrita(_writeID, var);
                     stack.peek().add(cmd);
                 }
             ;
@@ -143,8 +147,8 @@ cmdattrib   :   ID {
                 SC  {
                         IsiVariable var = (IsiVariable) symbolTable.get(_exprID);
                         var.registerUsage();
-                        
-                        CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent);
+                        int type = var.getType();
+                        CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent, type);
                         stack.peek().add(cmd);
                     }
             ;

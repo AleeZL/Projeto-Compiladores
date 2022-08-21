@@ -6,17 +6,15 @@
             <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/src/ast/CommandAtribuicao.java</file>
             <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/src/ast/CommandDecisao.java</file>
             <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/src/interfacesgraficas/MainFrame.java</file>
+            <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/src/ast/CommandEscrita.java</file>
             <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/input.isi</file>
             <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/src/main/IsiLanguage.java</file>
+            <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/output.c</file>
             <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/src/ast/CommandLeitura.java</file>
-            <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/src/parser/IsiLang.tokens</file>
+            <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/src/ast/AbstractCommand.java</file>
             <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/MainClass.java</file>
             <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/src/ast/CommandLoop.java</file>
-            <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/src/datastructures/IsiSymbolTable.java</file>
-            <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/src/datastructures/IsiSymbol.java</file>
-            <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/src/exceptions/IsiException.java</file>
             <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/IsiLang.g4</file>
-            <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/src/parser/IsiLangParser.java</file>
             <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/src/ast/IsiProgram.java</file>
             <file>file:/C:/Users/Alexandre/Downloads/UFABC%202022.2/Compiladores/ProjetoCompiladores/IsiLanguage/src/datastructures/IsiVariable.java</file>
         </group>

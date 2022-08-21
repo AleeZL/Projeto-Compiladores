@@ -12,9 +12,9 @@
 
       d := "Isto nao eh um texto!".
       a := 5.75.
-      b := "teste".
+      b := 7.
       k := 7.
-      c := "eita!+".
+      c := "eita+!".
 
      se (b > a) {
         escreva(a).

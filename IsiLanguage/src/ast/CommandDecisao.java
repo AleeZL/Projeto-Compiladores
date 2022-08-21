@@ -18,17 +18,17 @@ public class CommandDecisao extends AbstractCommand {
     @Override
     public String generateJavaCode() {
         StringBuilder str = new StringBuilder();
-        str.append("if ("+ condition + ") {\n");
+        str.append("if ("+ condition + ") {\n        ");
         for (AbstractCommand cmd: listaTrue) {
-            str.append("\t  " + cmd.generateJavaCode());
+            str.append("        " + cmd.generateJavaCode());
         }
-        str.append("\n \t} ");
+        str.append("\n        } ");
         if (listaFalse.size() >= 0) {
-            str.append("else {\n");
+            str.append("else {\n        ");
             for (AbstractCommand cmd: listaFalse) {
-            str.append("\t  " + cmd.generateJavaCode());
+            str.append("        " + cmd.generateJavaCode());
             }
-            str.append("\n\t}\n");
+            str.append("\n        }\n");
         }
         
         return str.toString();
@@ -37,6 +37,25 @@ public class CommandDecisao extends AbstractCommand {
     @Override
     public String toString() {
         return "CommandDecisao{" + "condition=" + condition + ", listaTrue=" + listaTrue + ", listaFalse=" + listaFalse + '}';
+    }
+
+    @Override
+    public String generateCCode() {
+        StringBuilder str = new StringBuilder();
+        str.append("if ("+ condition + ") {\n        ");
+        for (AbstractCommand cmd: listaTrue) {
+            str.append("        " + cmd.generateCCode());
+        }
+        str.append("\n        } ");
+        if (listaFalse.size() >= 0) {
+            str.append("else {\n        ");
+            for (AbstractCommand cmd: listaFalse) {
+            str.append("        " + cmd.generateCCode());
+            }
+            str.append("\n        }\n");
+        }
+        
+        return str.toString();
     }
     
 }
