@@ -16,6 +16,9 @@ public class MainClass{
         b = 7;
         k = 7;
         c = "xd";
+        if (b>a) {
+                System.out.println(a);
+        } 
         switch (c) {
                 case (xd):
         System.out.println(c);
@@ -28,8 +31,7 @@ public class MainClass{
         break;
 
         default:
-                System.out.println(s);        System.out.println(c);
-        }
+                System.out.println(s);        }
 
         while (a>b) {
                 a = a-1;        if (b>a) {

@@ -31,11 +31,11 @@ public class CommandCase extends AbstractCommand {
     @Override
     public String generateCCode() {
         StringBuilder str = new StringBuilder();
-        str.append("while ("+ condition + ") {\n        ");
+        str.append("case (" + condition + "):\n");
         for (AbstractCommand cmd: listaTrue) {
-            str.append("        " + cmd.generateCCode());
+            str.append("        " + cmd.generateCCode() + "\n");
         }
-        str.append("\n        } ");
+        str.append("        break;\n");
         
         return str.toString();
     }

@@ -193,6 +193,11 @@ cmdselecao  :   'se'    AP
                                 stack.peek().add(cmd);
                             }
                 )?
+                ({if (listaFalse==null){
+                    CommandDecisao cmd = new CommandDecisao(_exprDecision, listaTrue);
+                    stack.peek().add(cmd);
+
+                 }})
             ;
 
 cmdloop : 'enquanto'    AP
@@ -232,7 +237,6 @@ cmdtrocar: 'troque'     AP
                         {
                             listaTrue = stack.pop();
                         }
-
                         ('padrao'
                         DP
                         {
@@ -246,6 +250,11 @@ cmdtrocar: 'troque'     AP
                             CommandTrocar cmd = new CommandTrocar(_exprSwitch, listaTrue, listaCase);
                             stack.peek().add(cmd);
                         })?
+                        
+                        ({if (listaCase==null){
+                            CommandTrocar cmd = new CommandTrocar(_exprSwitch, listaTrue);
+                            stack.peek().add(cmd);
+                        }})
         ;
 
 cmdcaso:'caso'      ID   {_exprCase = _input.LT(-1).getText(); }
