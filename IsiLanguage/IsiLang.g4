@@ -23,8 +23,11 @@ grammar IsiLang;
     private String _exprContent;
     private String _exprDecision;
     private String _exprLoop;
+    private String _exprSwitch;
+    private String _exprCase;
     private ArrayList<AbstractCommand> listaTrue;
     private ArrayList<AbstractCommand> listaFalse;
+    private ArrayList<AbstractCommand> listaCase;
 
 
     public void verificaID(String id) {
@@ -104,6 +107,8 @@ cmd     : cmdleitura
         | cmdattrib
         | cmdselecao
         | cmdloop
+        | cmdtrocar
+        | cmdcaso
         ;
 
 
@@ -188,6 +193,11 @@ cmdselecao  :   'se'    AP
                                 stack.peek().add(cmd);
                             }
                 )?
+                ({if (listaFalse==null){
+                    CommandDecisao cmd = new CommandDecisao(_exprDecision, listaTrue);
+                    stack.peek().add(cmd);
+
+                 }})
             ;
 
 cmdloop : 'enquanto'    AP
@@ -214,6 +224,55 @@ cmdloop : 'enquanto'    AP
                         }
                         
         ;
+
+cmdtrocar: 'troque'     AP
+                        ID  {_exprSwitch = _input.LT(-1).getText(); }
+                        FP
+                        ACH
+                        {   currentThread = new ArrayList<AbstractCommand>();
+                            stack.push(currentThread);
+                        }
+                        (cmdcaso)+
+                        ('padrao'
+                        DP
+                        {
+                            
+                            listaTrue = stack.pop();
+                            currentThread = new ArrayList<AbstractCommand>();
+                            stack.push(currentThread);
+                        }
+                        (cmd)+
+                        FCH
+                        {
+                            listaCase = stack.pop();
+                            CommandTrocar cmd = new CommandTrocar(_exprSwitch, listaTrue, listaCase);
+                            stack.peek().add(cmd);
+                        })?
+                        
+                        ({if (listaCase==null){
+                            listaTrue = stack.pop();
+                            CommandTrocar cmd = new CommandTrocar(_exprSwitch, listaTrue);
+                            stack.peek().add(cmd);
+                        }}
+                        FCH
+                        )
+        ;
+
+cmdcaso:'caso'      ID   {_exprCase = _input.LT(-1).getText(); }
+                    DP
+                    {   currentThread = new ArrayList<AbstractCommand>();
+                            stack.push(currentThread);
+                    }
+                    (cmd)+
+                    'parar'
+                    SC
+                    {
+                        listaTrue = stack.pop();
+                        CommandCase cmd = new CommandCase(_exprCase, listaTrue);
+                        stack.peek().add(cmd);
+                    }
+        ;
+            
 
 expr    :   termo (
             OP { _exprContent += _input.LT(-1).getText(); }
@@ -268,4 +327,7 @@ TEXT   : ['"'] ([a-z] | [A-Z] | [0-9] | ' ' | '\t' | '!' | [#-/])* ['"']
        ;
 
 WS  : (' ' | '\t' | '\n' | '\r') -> skip
+    ;
+
+DP  :   ':'
     ;

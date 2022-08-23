@@ -15,6 +15,11 @@ public class CommandDecisao extends AbstractCommand {
         this.listaFalse = lf;
     }
 
+    public CommandDecisao(String condition, ArrayList<AbstractCommand> lt) {
+        this.condition = condition;
+        this.listaTrue = lt;
+    }
+
     @Override
     public String generateJavaCode() {
         StringBuilder str = new StringBuilder();
@@ -23,12 +28,14 @@ public class CommandDecisao extends AbstractCommand {
             str.append("        " + cmd.generateJavaCode());
         }
         str.append("\n        } ");
-        if (listaFalse.size() >= 0) {
-            str.append("else {\n        ");
-            for (AbstractCommand cmd: listaFalse) {
-            str.append("        " + cmd.generateJavaCode());
-            }
+        if (listaFalse!= null){
+            if (listaFalse.size() >= 0) {
+                str.append("else {\n        ");
+                for (AbstractCommand cmd: listaFalse) {
+                str.append("        " + cmd.generateJavaCode());
+                }
             str.append("\n        }\n");
+        }
         }
         
         return str.toString();
@@ -47,12 +54,15 @@ public class CommandDecisao extends AbstractCommand {
             str.append("        " + cmd.generateCCode());
         }
         str.append("\n        } ");
-        if (listaFalse.size() >= 0) {
-            str.append("else {\n        ");
-            for (AbstractCommand cmd: listaFalse) {
-            str.append("        " + cmd.generateCCode());
+        
+        if (listaFalse!= null){
+            if (listaFalse.size() >= 0) {
+                str.append("else {\n        ");
+                for (AbstractCommand cmd: listaFalse) {
+                str.append("        " + cmd.generateCCode());
+                }
+                str.append("\n        }\n");
             }
-            str.append("\n        }\n");
         }
         
         return str.toString();

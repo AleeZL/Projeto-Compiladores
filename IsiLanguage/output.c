@@ -15,15 +15,31 @@ int main(){
         a = 5.75;
         b = 7;
         k = 7;
-        c = "eita+!";
+        c = "xd";
         if (b>a) {
+                printf("%f", a);
+        } 
+        switch (c) {
+                case (xd):
+        printf("%s", c);
+        printf("%s", d);
+        break;
+
+        case (v):
+        printf("%s", s);
+        printf("%s", c);
+        break;
+
+        default:
+                printf("%s", s);        }
+
+        while (a>b) {
+                a = a-1;        if (b>a) {
                 printf("%f", a);
         } else {
                 printf("%s", c);
         }
 
-        while (a>b) {
-                a = a-1;
         } 
         printf("%s", d);
         return 0;

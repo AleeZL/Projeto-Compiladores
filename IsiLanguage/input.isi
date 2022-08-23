@@ -14,16 +14,39 @@
       a := 5.75.
       b := 7.
       k := 7.
-      c := "eita+!".
+      c := "xd".
 
      se (b > a) {
+        escreva(a).  
+    }  senao { escreva (b)}
+
+     troque(c){
+         caso xd:
+            escreva(c).
+            escreva(d). 
+            parar.
+         caso v:
+            escreva(s).
+            escreva(c). 
+            parar.
+         padrao:
+            escreva(d). 
+          
+        
+
+      }
+
+
+
+    
+      
+      enquanto (a > b) {
+          a := a - 1.
+               se (b > a) {
         escreva(a).
       } senao { 
          escreva(c).
       }
-      
-      enquanto (a > b) {
-          a := a - 1.
       }
 
       escreva(d).
