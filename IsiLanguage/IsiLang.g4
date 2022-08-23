@@ -233,15 +233,13 @@ cmdtrocar: 'troque'     AP
                             stack.push(currentThread);
                         }
                         (cmdcaso)+
-
-                        {
-                            listaTrue = stack.pop();
-                        }
                         ('padrao'
                         DP
                         {
-                                currentThread = new ArrayList<AbstractCommand>();
-                                stack.push(currentThread);
+                            
+                            listaTrue = stack.pop();
+                            currentThread = new ArrayList<AbstractCommand>();
+                            stack.push(currentThread);
                         }
                         (cmd)+
                         FCH
@@ -252,9 +250,12 @@ cmdtrocar: 'troque'     AP
                         })?
                         
                         ({if (listaCase==null){
+                            listaTrue = stack.pop();
                             CommandTrocar cmd = new CommandTrocar(_exprSwitch, listaTrue);
                             stack.peek().add(cmd);
-                        }})
+                        }}
+                        FCH
+                        )
         ;
 
 cmdcaso:'caso'      ID   {_exprCase = _input.LT(-1).getText(); }

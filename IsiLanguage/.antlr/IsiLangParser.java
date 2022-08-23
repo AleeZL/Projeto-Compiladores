@@ -926,6 +926,10 @@ public class IsiLangParser extends Parser {
 		public TerminalNode ID() { return getToken(IsiLangParser.ID, 0); }
 		public TerminalNode FP() { return getToken(IsiLangParser.FP, 0); }
 		public TerminalNode ACH() { return getToken(IsiLangParser.ACH, 0); }
+		public List<TerminalNode> FCH() { return getTokens(IsiLangParser.FCH); }
+		public TerminalNode FCH(int i) {
+			return getToken(IsiLangParser.FCH, i);
+		}
 		public List<CmdcasoContext> cmdcaso() {
 			return getRuleContexts(CmdcasoContext.class);
 		}
@@ -933,7 +937,6 @@ public class IsiLangParser extends Parser {
 			return getRuleContext(CmdcasoContext.class,i);
 		}
 		public TerminalNode DP() { return getToken(IsiLangParser.DP, 0); }
-		public TerminalNode FCH() { return getToken(IsiLangParser.FCH, 0); }
 		public List<CmdContext> cmd() {
 			return getRuleContexts(CmdContext.class);
 		}
@@ -951,7 +954,6 @@ public class IsiLangParser extends Parser {
 		enterRule(_localctx, 22, RULE_cmdtrocar);
 		int _la;
 		try {
-			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(151);
@@ -970,55 +972,48 @@ public class IsiLangParser extends Parser {
 			                        
 			setState(159); 
 			_errHandler.sync(this);
-			_alt = 1;
+			_la = _input.LA(1);
 			do {
-				switch (_alt) {
-				case 1:
-					{
-					{
-					setState(158);
-					cmdcaso();
-					}
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
+				{
+				{
+				setState(158);
+				cmdcaso();
+				}
 				}
 				setState(161); 
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,9,_ctx);
-			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
-
-			                            listaTrue = stack.pop();
-			                        
-			setState(175);
+				_la = _input.LA(1);
+			} while ( _la==T__11 );
+			setState(174);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__10) {
 				{
-				setState(164);
+				setState(163);
 				match(T__10);
-				setState(165);
+				setState(164);
 				match(DP);
 
-				                                currentThread = new ArrayList<AbstractCommand>();
-				                                stack.push(currentThread);
+				                            
+				                            listaTrue = stack.pop();
+				                            currentThread = new ArrayList<AbstractCommand>();
+				                            stack.push(currentThread);
 				                        
-				setState(168); 
+				setState(167); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
 					{
 					{
-					setState(167);
+					setState(166);
 					cmd();
 					}
 					}
-					setState(170); 
+					setState(169); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__4) | (1L << T__5) | (1L << T__6) | (1L << T__8) | (1L << T__9) | (1L << T__11) | (1L << ID))) != 0) );
-				setState(172);
+				setState(171);
 				match(FCH);
 
 				                            listaCase = stack.pop();
@@ -1030,9 +1025,12 @@ public class IsiLangParser extends Parser {
 
 			{
 			if (listaCase==null){
+			                            listaTrue = stack.pop();
 			                            CommandTrocar cmd = new CommandTrocar(_exprSwitch, listaTrue);
 			                            stack.peek().add(cmd);
 			                        }
+			setState(177);
+			match(FCH);
 			}
 			}
 		}
@@ -1247,14 +1245,14 @@ public class IsiLangParser extends Parser {
 		"\16\13s\3\13\3\13\3\13\3\13\3\13\3\13\6\13|\n\13\r\13\16\13}\3\13\3\13"+
 		"\3\13\5\13\u0083\n\13\3\13\3\13\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3"+
 		"\f\3\f\3\f\6\f\u0093\n\f\r\f\16\f\u0094\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3"+
-		"\r\3\r\3\r\3\r\6\r\u00a2\n\r\r\r\16\r\u00a3\3\r\3\r\3\r\3\r\3\r\6\r\u00ab"+
-		"\n\r\r\r\16\r\u00ac\3\r\3\r\3\r\5\r\u00b2\n\r\3\r\3\r\3\16\3\16\3\16\3"+
-		"\16\3\16\3\16\6\16\u00bc\n\16\r\16\16\16\u00bd\3\16\3\16\3\16\3\16\3\17"+
-		"\3\17\3\17\3\17\7\17\u00c8\n\17\f\17\16\17\u00cb\13\17\3\20\3\20\3\20"+
-		"\3\20\5\20\u00d1\n\20\3\20\2\2\21\2\4\6\b\n\f\16\20\22\24\26\30\32\34"+
-		"\36\2\4\3\2\31\32\3\2\32\33\2\u00d7\2 \3\2\2\2\4\'\3\2\2\2\6+\3\2\2\2"+
-		"\b<\3\2\2\2\n>\3\2\2\2\fK\3\2\2\2\16M\3\2\2\2\20U\3\2\2\2\22]\3\2\2\2"+
-		"\24e\3\2\2\2\26\u0086\3\2\2\2\30\u0099\3\2\2\2\32\u00b5\3\2\2\2\34\u00c3"+
+		"\r\3\r\3\r\3\r\6\r\u00a2\n\r\r\r\16\r\u00a3\3\r\3\r\3\r\3\r\6\r\u00aa"+
+		"\n\r\r\r\16\r\u00ab\3\r\3\r\3\r\5\r\u00b1\n\r\3\r\3\r\3\r\3\16\3\16\3"+
+		"\16\3\16\3\16\3\16\6\16\u00bc\n\16\r\16\16\16\u00bd\3\16\3\16\3\16\3\16"+
+		"\3\17\3\17\3\17\3\17\7\17\u00c8\n\17\f\17\16\17\u00cb\13\17\3\20\3\20"+
+		"\3\20\3\20\5\20\u00d1\n\20\3\20\2\2\21\2\4\6\b\n\f\16\20\22\24\26\30\32"+
+		"\34\36\2\4\3\2\31\32\3\2\32\33\2\u00d7\2 \3\2\2\2\4\'\3\2\2\2\6+\3\2\2"+
+		"\2\b<\3\2\2\2\n>\3\2\2\2\fK\3\2\2\2\16M\3\2\2\2\20U\3\2\2\2\22]\3\2\2"+
+		"\2\24e\3\2\2\2\26\u0086\3\2\2\2\30\u0099\3\2\2\2\32\u00b5\3\2\2\2\34\u00c3"+
 		"\3\2\2\2\36\u00d0\3\2\2\2 !\7\3\2\2!\"\5\4\3\2\"#\5\n\6\2#$\7\4\2\2$%"+
 		"\b\2\1\2%\3\3\2\2\2&(\5\6\4\2\'&\3\2\2\2()\3\2\2\2)\'\3\2\2\2)*\3\2\2"+
 		"\2*\5\3\2\2\2+,\5\b\5\2,-\7\31\2\2-\63\b\4\1\2./\7\25\2\2/\60\7\31\2\2"+
@@ -1283,12 +1281,12 @@ public class IsiLangParser extends Parser {
 		"\2\u0099\u009a\7\f\2\2\u009a\u009b\7\20\2\2\u009b\u009c\7\31\2\2\u009c"+
 		"\u009d\b\r\1\2\u009d\u009e\7\21\2\2\u009e\u009f\7\26\2\2\u009f\u00a1\b"+
 		"\r\1\2\u00a0\u00a2\5\32\16\2\u00a1\u00a0\3\2\2\2\u00a2\u00a3\3\2\2\2\u00a3"+
-		"\u00a1\3\2\2\2\u00a3\u00a4\3\2\2\2\u00a4\u00a5\3\2\2\2\u00a5\u00b1\b\r"+
-		"\1\2\u00a6\u00a7\7\r\2\2\u00a7\u00a8\7\35\2\2\u00a8\u00aa\b\r\1\2\u00a9"+
-		"\u00ab\5\f\7\2\u00aa\u00a9\3\2\2\2\u00ab\u00ac\3\2\2\2\u00ac\u00aa\3\2"+
-		"\2\2\u00ac\u00ad\3\2\2\2\u00ad\u00ae\3\2\2\2\u00ae\u00af\7\27\2\2\u00af"+
-		"\u00b0\b\r\1\2\u00b0\u00b2\3\2\2\2\u00b1\u00a6\3\2\2\2\u00b1\u00b2\3\2"+
-		"\2\2\u00b2\u00b3\3\2\2\2\u00b3\u00b4\b\r\1\2\u00b4\31\3\2\2\2\u00b5\u00b6"+
+		"\u00a1\3\2\2\2\u00a3\u00a4\3\2\2\2\u00a4\u00b0\3\2\2\2\u00a5\u00a6\7\r"+
+		"\2\2\u00a6\u00a7\7\35\2\2\u00a7\u00a9\b\r\1\2\u00a8\u00aa\5\f\7\2\u00a9"+
+		"\u00a8\3\2\2\2\u00aa\u00ab\3\2\2\2\u00ab\u00a9\3\2\2\2\u00ab\u00ac\3\2"+
+		"\2\2\u00ac\u00ad\3\2\2\2\u00ad\u00ae\7\27\2\2\u00ae\u00af\b\r\1\2\u00af"+
+		"\u00b1\3\2\2\2\u00b0\u00a5\3\2\2\2\u00b0\u00b1\3\2\2\2\u00b1\u00b2\3\2"+
+		"\2\2\u00b2\u00b3\b\r\1\2\u00b3\u00b4\7\27\2\2\u00b4\31\3\2\2\2\u00b5\u00b6"+
 		"\7\16\2\2\u00b6\u00b7\7\31\2\2\u00b7\u00b8\b\16\1\2\u00b8\u00b9\7\35\2"+
 		"\2\u00b9\u00bb\b\16\1\2\u00ba\u00bc\5\f\7\2\u00bb\u00ba\3\2\2\2\u00bc"+
 		"\u00bd\3\2\2\2\u00bd\u00bb\3\2\2\2\u00bd\u00be\3\2\2\2\u00be\u00bf\3\2"+
@@ -1298,7 +1296,7 @@ public class IsiLangParser extends Parser {
 		"\u00c7\3\2\2\2\u00c9\u00ca\3\2\2\2\u00ca\35\3\2\2\2\u00cb\u00c9\3\2\2"+
 		"\2\u00cc\u00cd\7\31\2\2\u00cd\u00d1\b\20\1\2\u00ce\u00cf\t\3\2\2\u00cf"+
 		"\u00d1\b\20\1\2\u00d0\u00cc\3\2\2\2\u00d0\u00ce\3\2\2\2\u00d1\37\3\2\2"+
-		"\2\21)\63<BKs}\u0082\u0094\u00a3\u00ac\u00b1\u00bd\u00c9\u00d0";
+		"\2\21)\63<BKs}\u0082\u0094\u00a3\u00ab\u00b0\u00bd\u00c9\u00d0";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

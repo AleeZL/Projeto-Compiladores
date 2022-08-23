@@ -18,7 +18,7 @@
 
      se (b > a) {
         escreva(a).  
-    } 
+    }  senao { escreva (b)}
 
      troque(c){
          caso xd:
@@ -29,8 +29,10 @@
             escreva(s).
             escreva(c). 
             parar.
-          padrao:
-            escreva(s).
+         padrao:
+            escreva(d). 
+          
+        
 
       }
 

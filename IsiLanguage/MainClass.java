@@ -18,20 +18,23 @@ public class MainClass{
         c = "xd";
         if (b>a) {
                 System.out.println(a);
-        } 
+        } else {
+                System.out.println(b);
+        }
+
         switch (c) {
-                case (xd):
+                case xd:
         System.out.println(c);
         System.out.println(d);
         break;
 
-        case (v):
+        case v:
         System.out.println(s);
         System.out.println(c);
         break;
 
         default:
-                System.out.println(s);        }
+                System.out.println(d);        }
 
         while (a>b) {
                 a = a-1;        if (b>a) {

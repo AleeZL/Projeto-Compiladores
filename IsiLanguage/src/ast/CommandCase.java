@@ -14,7 +14,7 @@ public class CommandCase extends AbstractCommand {
     @Override
     public String generateJavaCode() {
         StringBuilder str = new StringBuilder();
-        str.append("case (" + condition + "):\n");
+        str.append("case " + condition + ":\n");
         for (AbstractCommand cmd: listaTrue) {
             str.append("        " + cmd.generateJavaCode() + "\n");
         }
