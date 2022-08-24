@@ -196,7 +196,7 @@ E sua transcrição gerada em C, no arquivo output.c:
         return 0;
     }
 
-#Colaboradores
+# COLABORADORES
 
 <table>
   <tr>
