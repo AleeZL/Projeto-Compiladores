@@ -195,3 +195,54 @@ E sua transcrição gerada em C, no arquivo output.c:
             }
         return 0;
     }
+
+#Colaboradores
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/arthurcubakowic">
+        <img src="https://github.com/arthurcubakowic.png" width="100px;"/><br>
+        <sub>
+          <b>Arthur Von Peer Cubakowic</b>
+        </sub>        
+      </a>
+      <p>11201722317</p>
+    </td>
+    <td align="center">
+      <a href="https://github.com/AleeZL.png">
+        <img src="https://github.com/AleeZL.png" width="100px;"/><br>
+        <sub>
+          <b> Alexandre Lima</b>
+        </sub>
+      </a>
+      <p>11201720542</p>
+    </td>      
+      <td align="center">
+      <a href="https://github.com/BrunoVAranha">
+        <img src="https://github.com/BrunoVAranha.png" width="100px;"/><br>
+        <sub>
+          <b>Bruno Valem Aranha </b>
+        </sub>
+      </a>
+      <p>11039116</p>
+    </td> 
+      <td align="center">
+      <a href="https://github.com/EstevesHERE">
+        <img src="https://github.com/EstevesHERE.png" width="100px;"/><br>
+        <sub>
+          <b>Leonardo Esteves Conceição</b>
+        </sub>
+      </a>
+      <p>11201811411</p>
+    </td> 
+      <td align="center">
+      <a href="https://github.com/douglasagab">
+        <img src="https://github.com/douglasagab.png" width="100px;"/><br>
+        <sub>
+          <b>Douglas  </b>        
+        </sub>
+      </a>
+      <p>11201810314</p>
+    <td> 
+</table>
