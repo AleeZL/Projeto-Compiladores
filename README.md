@@ -3,6 +3,10 @@ Projeto para disciplina de Compiladores.
 
 Compilador construído em java com auxílio da biblioteca ANTLR4.
 
+# VIDEO EXPLICACAO
+
+https://youtu.be/EtDiSqaXcv0
+
 # CHECKLIST
 Completar o checklist eleva a nota entre C e D. O checklist foi completado em 2022/08/21, sendo ele: :white_check_mark:
 
@@ -15,7 +19,6 @@ Completar o checklist eleva a nota entre C e D. O checklist foi completado em 20
        -Verificar decl. de var. (ñ usar var. que ñ foram declaradas)         | OK - Apresenta uma exceção informando qual variável não foi declarada.
        -Verificar se há var. declaradas e não-utilizadas (warning)           | OK - Apresenta um warning (em uma janela) informando qual variável foi declarada e não usada.
        -Geração de pelo menos 1 linguagem destino (C/Java/Python)            | OK - linguagem de destino: Java.
-
 
 # ANEXOS
 Adicionar elementos dos anexos pode elevar a nota até A.
