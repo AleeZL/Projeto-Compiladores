@@ -216,7 +216,7 @@ E sua transcrição gerada em C, no arquivo output.c:
       <a href="https://github.com/AleeZL.png">
         <img src="https://github.com/AleeZL.png" width="100px;"/><br>
         <sub>
-          <b> Alexandre Lima</b>
+          <b> Alexandre Z. Lima</b>
         </sub>
       </a>
       <p>11201720542</p>
